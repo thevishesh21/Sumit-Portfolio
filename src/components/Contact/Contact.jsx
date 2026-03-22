@@ -1,3 +1,4 @@
+import useScrollReveal from '../../hooks/useScrollReveal';
 import {
   FaEnvelope,
   FaPhone,
@@ -11,9 +12,11 @@ import {
 import './Contact.css';
 
 const Contact = () => {
+  const [infoRef, infoVisible] = useScrollReveal();
+  const [formRef, formVisible] = useScrollReveal({ threshold: 0.15 });
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Form submission logic
   };
 
   return (
@@ -21,7 +24,10 @@ const Contact = () => {
       <div className="container">
         <div className="contact-grid">
           {/* Info */}
-          <div className="contact-info">
+          <div
+            className={`contact-info reveal-left ${infoVisible ? 'visible' : ''}`}
+            ref={infoRef}
+          >
             <span className="contact-info-label">Get In Touch</span>
             <h2 className="contact-info-title">Let's Create Something Amazing</h2>
             <p className="contact-info-text">
@@ -62,7 +68,10 @@ const Contact = () => {
           </div>
 
           {/* Form */}
-          <div className="contact-form-wrapper">
+          <div
+            className={`contact-form-wrapper reveal-right ${formVisible ? 'visible' : ''}`}
+            ref={formRef}
+          >
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="contact-form-row">
                 <div className="contact-form-group">

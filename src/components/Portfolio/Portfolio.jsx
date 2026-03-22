@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useScrollReveal from '../../hooks/useScrollReveal';
 import { FaPlay, FaArrowRight, FaFilm } from 'react-icons/fa';
 import './Portfolio.css';
 
@@ -45,6 +46,8 @@ const projects = [
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [headerRef, headerVisible] = useScrollReveal();
+  const [gridRef, gridVisible] = useScrollReveal({ threshold: 0.08 });
 
   const filteredProjects = activeFilter === 'All'
     ? projects
@@ -53,7 +56,10 @@ const Portfolio = () => {
   return (
     <section className="portfolio section" id="portfolio">
       <div className="container">
-        <div className="section-header">
+        <div
+          className={`section-header reveal ${headerVisible ? 'visible' : ''}`}
+          ref={headerRef}
+        >
           <span className="section-label">My Work</span>
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-subtitle">
@@ -73,9 +79,12 @@ const Portfolio = () => {
           ))}
         </div>
 
-        <div className="portfolio-grid">
+        <div className="portfolio-grid" ref={gridRef}>
           {filteredProjects.map((project, index) => (
-            <div className="portfolio-item" key={index}>
+            <div
+              className={`portfolio-item reveal ${gridVisible ? 'visible' : ''} delay-${index + 1}`}
+              key={index}
+            >
               <div className="portfolio-item-thumbnail">
                 <div
                   className="portfolio-item-thumb-img"

@@ -1,3 +1,4 @@
+import useScrollReveal from '../../hooks/useScrollReveal';
 import {
   FaCut,
   FaMagic,
@@ -48,10 +49,16 @@ const skillsData = [
 ];
 
 const Skills = () => {
+  const [headerRef, headerVisible] = useScrollReveal();
+  const [gridRef, gridVisible] = useScrollReveal({ threshold: 0.1 });
+
   return (
     <section className="skills section" id="skills">
       <div className="container">
-        <div className="section-header">
+        <div
+          className={`section-header reveal ${headerVisible ? 'visible' : ''}`}
+          ref={headerRef}
+        >
           <span className="section-label">What I Do</span>
           <h2 className="section-title">Skills & Expertise</h2>
           <p className="section-subtitle">
@@ -59,9 +66,12 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="skills-grid">
+        <div className="skills-grid" ref={gridRef}>
           {skillsData.map((skill, index) => (
-            <div className="skill-card" key={index}>
+            <div
+              className={`skill-card reveal ${gridVisible ? 'visible' : ''} delay-${index + 1}`}
+              key={index}
+            >
               <div className="skill-card-icon">{skill.icon}</div>
               <h3 className="skill-card-title">{skill.title}</h3>
               <p className="skill-card-description">{skill.description}</p>

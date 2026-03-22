@@ -1,11 +1,24 @@
 /* ============================================
-   FOOTER
+   FOOTER — ENHANCED
    ============================================ */
 
 .footer {
   background: var(--bg-primary);
   border-top: 1px solid var(--border);
-  padding: 48px 0 32px;
+  padding: 56px 0 32px;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+  opacity: 0.3;
 }
 
 .footer-grid {
@@ -26,11 +39,16 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  transition: transform var(--transition-fast);
+}
+
+.footer-logo:hover {
+  transform: scale(1.03);
 }
 
 .footer-logo-icon {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   background: var(--gradient-accent);
   border-radius: var(--radius-sm);
   display: flex;
@@ -38,11 +56,12 @@
   justify-content: center;
   color: var(--bg-primary);
   font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(212, 165, 83, 0.2);
 }
 
 .footer-logo-text {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -62,7 +81,7 @@
 .footer-column {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 
 .footer-column-title {
@@ -82,11 +101,26 @@
   font-size: 0.88rem;
   color: var(--text-secondary);
   transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
 }
 
 .footer-column-links a:hover {
   color: var(--accent);
-  padding-left: 4px;
+  gap: 6px;
+}
+
+.footer-column-links a::before {
+  content: '';
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width var(--transition-fast);
+}
+
+.footer-column-links a:hover::before {
+  width: 12px;
 }
 
 /* Bottom */

@@ -1,3 +1,4 @@
+import useScrollReveal from '../../hooks/useScrollReveal';
 import { FaStar } from 'react-icons/fa';
 import './Testimonials.css';
 
@@ -26,10 +27,16 @@ const testimonialsData = [
 ];
 
 const Testimonials = () => {
+  const [headerRef, headerVisible] = useScrollReveal();
+  const [gridRef, gridVisible] = useScrollReveal({ threshold: 0.1 });
+
   return (
     <section className="testimonials section" id="testimonials">
       <div className="container">
-        <div className="section-header">
+        <div
+          className={`section-header reveal ${headerVisible ? 'visible' : ''}`}
+          ref={headerRef}
+        >
           <span className="section-label">Feedback</span>
           <h2 className="section-title">What Clients Say</h2>
           <p className="section-subtitle">
@@ -37,9 +44,12 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="testimonials-grid">
+        <div className="testimonials-grid" ref={gridRef}>
           {testimonialsData.map((testimonial, index) => (
-            <div className="testimonial-card" key={index}>
+            <div
+              className={`testimonial-card reveal ${gridVisible ? 'visible' : ''} delay-${index + 1}`}
+              key={index}
+            >
               <div className="testimonial-stars">
                 {[...Array(testimonial.stars)].map((_, i) => (
                   <FaStar key={i} />

@@ -1,11 +1,18 @@
+import useScrollReveal from '../../hooks/useScrollReveal';
 import { FaPlay } from 'react-icons/fa';
 import './Showreel.css';
 
 const Showreel = () => {
+  const [headerRef, headerVisible] = useScrollReveal();
+  const [playerRef, playerVisible] = useScrollReveal({ threshold: 0.2 });
+
   return (
     <section className="showreel section" id="showreel">
       <div className="container">
-        <div className="section-header">
+        <div
+          className={`section-header reveal ${headerVisible ? 'visible' : ''}`}
+          ref={headerRef}
+        >
           <span className="section-label">Watch</span>
           <h2 className="section-title">My Showreel</h2>
           <p className="section-subtitle">
@@ -13,9 +20,13 @@ const Showreel = () => {
           </p>
         </div>
 
-        <div className="showreel-player">
+        <div
+          className={`showreel-player reveal-scale ${playerVisible ? 'visible' : ''}`}
+          ref={playerRef}
+        >
           <div className="showreel-video-wrapper">
             <div className="showreel-pulse-ring"></div>
+            <div className="showreel-pulse-ring-2"></div>
             <button className="showreel-play-btn" aria-label="Play showreel">
               <FaPlay />
             </button>

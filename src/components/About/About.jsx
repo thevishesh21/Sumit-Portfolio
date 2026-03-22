@@ -1,7 +1,12 @@
+import useScrollReveal from '../../hooks/useScrollReveal';
 import { FaUser, FaVideo, FaFilm, FaMagic, FaCut, FaPalette } from 'react-icons/fa';
 import './About.css';
 
 const About = () => {
+  const [sectionRef, sectionVisible] = useScrollReveal();
+  const [imageRef, imageVisible] = useScrollReveal({ threshold: 0.2 });
+  const [contentRef, contentVisible] = useScrollReveal({ threshold: 0.2 });
+
   const highlights = [
     { icon: <FaCut />, text: 'Premiere Pro Expert' },
     { icon: <FaMagic />, text: 'After Effects & VFX' },
@@ -10,11 +15,14 @@ const About = () => {
   ];
 
   return (
-    <section className="about section" id="about">
+    <section className="about section" id="about" ref={sectionRef}>
       <div className="container">
         <div className="about-grid">
           {/* Image */}
-          <div className="about-image">
+          <div
+            className={`about-image reveal-left ${imageVisible ? 'visible' : ''}`}
+            ref={imageRef}
+          >
             <div className="about-image-wrapper">
               <div className="about-placeholder">
                 <FaUser />
@@ -27,7 +35,10 @@ const About = () => {
           </div>
 
           {/* Content */}
-          <div className="about-content">
+          <div
+            className={`about-content reveal-right ${contentVisible ? 'visible' : ''}`}
+            ref={contentRef}
+          >
             <span className="about-label">About Me</span>
             <h2 className="about-title">Turning Raw Footage Into Cinematic Masterpieces</h2>
             <p className="about-text">

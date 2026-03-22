@@ -1,9 +1,10 @@
 /* ============================================
-   TESTIMONIALS
+   TESTIMONIALS — ENHANCED
    ============================================ */
 
 .testimonials {
   background: var(--bg-primary);
+  position: relative;
 }
 
 .testimonials-grid {
@@ -21,17 +22,36 @@
   flex-direction: column;
   gap: 20px;
   transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle accent glow on hover */
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-accent);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.testimonial-card:hover::before {
+  opacity: 1;
 }
 
 .testimonial-card:hover {
   border-color: var(--border-accent);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-5px) perspective(600px) rotateX(1deg);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .testimonial-stars {
   display: flex;
-  gap: 4px;
+  gap: 3px;
   color: var(--accent);
   font-size: 0.85rem;
 }
@@ -39,19 +59,19 @@
 .testimonial-text {
   font-size: 0.95rem;
   color: var(--text-secondary);
-  line-height: 1.8;
+  line-height: 1.85;
   flex: 1;
   font-style: italic;
 }
 
 .testimonial-text::before {
-  content: '"';
+  content: '\201C';
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--accent);
-  opacity: 0.5;
+  opacity: 0.4;
   line-height: 0;
-  vertical-align: -0.4em;
+  vertical-align: -0.5em;
   margin-right: 4px;
 }
 
@@ -59,15 +79,16 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  padding-top: 16px;
+  padding-top: 18px;
   border-top: 1px solid var(--border);
 }
 
 .testimonial-avatar {
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   background: var(--accent-dim);
+  border: 2px solid var(--border-accent);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,11 +97,19 @@
   font-weight: 700;
   font-size: 1rem;
   flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.testimonial-card:hover .testimonial-avatar {
+  background: var(--gradient-accent);
+  color: var(--bg-primary);
+  border-color: var(--accent);
 }
 
 .testimonial-author-info {
   display: flex;
   flex-direction: column;
+  gap: 2px;
 }
 
 .testimonial-author-name {
@@ -90,7 +119,7 @@
 }
 
 .testimonial-author-role {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   color: var(--text-muted);
 }
 
