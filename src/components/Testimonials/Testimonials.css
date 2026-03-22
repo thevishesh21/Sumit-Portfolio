@@ -5,6 +5,7 @@
 .testimonials {
   background: var(--bg-primary);
   position: relative;
+  overflow: hidden;
 }
 
 .testimonials-grid {

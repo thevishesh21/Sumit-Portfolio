@@ -4,6 +4,8 @@
 
 .about {
   background: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
 }
 
 .about-grid {
