@@ -124,15 +124,47 @@
 @media (max-width: 992px) {
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .skill-card {
+    padding: 24px 22px;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .skill-card-icon {
+    width: 46px;
+    height: 46px;
+    font-size: 1.15rem;
+  }
+
+  .skill-card-title {
+    font-size: 1.05rem;
+  }
+
+  .skill-card-description {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
   .skills-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .skill-card {
-    padding: 24px 20px;
+    padding: 22px 18px;
+    gap: 14px;
+  }
+
+  .skill-card-tag {
+    font-size: 0.65rem;
+    padding: 4px 10px;
   }
 }

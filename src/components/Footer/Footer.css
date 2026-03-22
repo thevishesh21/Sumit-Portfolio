@@ -154,9 +154,18 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 24px;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: 28px;
+    margin-bottom: 36px;
+  }
+
+  .footer-brand-text {
+    max-width: 100%;
   }
 
   .footer-bottom {
@@ -164,11 +173,52 @@
     gap: 16px;
     text-align: center;
   }
+
+  .footer-bottom-links {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
+  .footer {
+    padding: 32px 0 20px;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .footer-column {
+    gap: 14px;
+  }
+
+  .footer-column-title {
+    font-size: 0.92rem;
+  }
+
+  .footer-column-links a {
+    font-size: 0.82rem;
+  }
+
+  .footer-bottom-links a {
+    font-size: 0.75rem;
+  }
+
+  .footer-copyright {
+    font-size: 0.75rem;
+  }
+
+  .footer-logo-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+
+  .footer-logo-text {
+    font-size: 1.1rem;
   }
 }

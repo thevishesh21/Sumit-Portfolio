@@ -271,6 +271,7 @@
     text-align: center;
     padding-top: 120px;
     padding-bottom: 60px;
+    gap: 40px;
   }
 
   .hero-content {
@@ -290,6 +291,7 @@
 
   .hero-stats {
     justify-content: center;
+    gap: 32px;
   }
 
   .hero-stat {
@@ -298,22 +300,104 @@
 
   .hero-visual {
     flex: 0 0 auto;
-    width: 300px;
+    width: 280px;
   }
 
   .hero-visual-frame {
     transform: none;
   }
+
+  .hero-visual-frame:hover {
+    transform: none;
+  }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .hero .container {
+    padding-top: 100px;
+    padding-bottom: 48px;
+  }
+
+  .hero-description {
+    font-size: 0.92rem;
+    margin-bottom: 32px;
+  }
+
   .hero-stats {
     gap: 24px;
-    flex-wrap: wrap;
+    margin-top: 40px;
+    padding-top: 24px;
+  }
+
+  .hero-stat-number {
+    font-size: 1.8rem;
+  }
+
+  .hero-stat-label {
+    font-size: 0.72rem;
   }
 
   .hero-visual {
     width: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero .container {
+    padding-top: 90px;
+    padding-bottom: 40px;
+  }
+
+  .hero-badge {
+    font-size: 0.62rem;
+    padding: 6px 14px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+
+  .hero-name {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+    margin-bottom: 8px;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+  }
+
+  .hero-stats {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .hero-stat-number {
+    font-size: 1.5rem;
+  }
+
+  .hero-visual {
+    width: 200px;
+  }
+
+  .hero-visual-overlay {
+    padding: 10px 14px;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    gap: 10px;
+  }
+
+  .hero-visual-overlay-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 0.7rem;
+  }
+
+  .hero-visual-overlay-text {
+    font-size: 0.72rem;
+  }
+
+  .hero-visual-overlay-text strong {
+    font-size: 0.8rem;
   }
 
   .hero-buttons {
@@ -325,5 +409,19 @@
   .hero-buttons .btn-outline {
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-name {
+    font-size: 2rem;
+  }
+
+  .hero-stat {
+    min-width: 70px;
+  }
+
+  .hero-visual {
+    width: 180px;
   }
 }

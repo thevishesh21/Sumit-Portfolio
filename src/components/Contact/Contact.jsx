@@ -40,14 +40,14 @@ const Contact = () => {
                 <div className="contact-detail-icon"><FaEnvelope /></div>
                 <div className="contact-detail-content">
                   <span className="contact-detail-label">Email</span>
-                  <span className="contact-detail-value">sumit@editor.com</span>
+                  <span className="contact-detail-value">factons706@gmail.com</span>
                 </div>
               </div>
               <div className="contact-detail">
                 <div className="contact-detail-icon"><FaPhone /></div>
                 <div className="contact-detail-content">
                   <span className="contact-detail-label">Phone</span>
-                  <span className="contact-detail-value">+91 98765 43210</span>
+                  <span className="contact-detail-value">+91 9953301228</span>
                 </div>
               </div>
               <div className="contact-detail">
